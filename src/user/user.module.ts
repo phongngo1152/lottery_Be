@@ -10,3 +10,4 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   controllers: [UserController]
 })
 export class UserModule {}
+
