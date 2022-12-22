@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { BuyticketModule } from './buyticket/buyticket.module';
 import { HistoryModule } from './history/history.module';
 import { NumbergenModule } from './numbergen/numbergen.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 
 
@@ -24,7 +25,7 @@ import { NumbergenModule } from './numbergen/numbergen.module';
   UserModule,
   BuyticketModule,
   HistoryModule,
-  NumbergenModule],
+  NumbergenModule, ScheduleModule.forRoot()],
   controllers: [AppController],
   providers: [AppService],
 })

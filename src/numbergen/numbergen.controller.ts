@@ -12,11 +12,15 @@ export class NumbergenController {
       return this.NumbergenService.findAll()
     }
 
-    @Get(':id')
+    @Get('number_new/:id')
     get(@Param() params) {
         return this.NumbergenService.findOne(params.id);
     }
 
+    @Get('number_new')
+    get_number(@Param() params) {
+        return this.NumbergenService.get_new_numbergen();
+    }
     @Post()
     create(@Body() user: NumbergenEntity) {
         return this.NumbergenService.create(user);

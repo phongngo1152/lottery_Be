@@ -8,7 +8,7 @@ export class NumbergenEntity {
     @Column({type: 'float'})
     number: number;
 
-    @Column()
-    date: Date;
+    @Column({ type: "timestamp", default: () => "now()"})
+    date_prize: Date;
 
 }

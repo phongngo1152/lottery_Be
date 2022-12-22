@@ -16,6 +16,15 @@ export class HistoryController {
     get(@Param() params) {
         return this.HistoryService.findOne(params.id_user, params.id_ticket);
     }
+    @Get('abc/his/:id_user')
+    get_his_1(@Param() params) {
+        return this.HistoryService.findMany(params.id_user);
+    }
+    @Get(':prize')
+    get_his(@Param() params) {
+        return this.HistoryService.findhis(params.prize);
+    }
+
 
     @Post()
     create(@Body() user: HistoryEntity) {

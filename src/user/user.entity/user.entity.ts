@@ -10,19 +10,19 @@ export class UserEntity {
     @Column({ length: 150})
     email: string;
 
-    @Column({ type:'float'})
-    phone: number;
+    @Column({ length: 6,default:"xxxxx"})
+    password: string;
 
     @Column({ type:'float',default : 1000})
     money: number;
 
-    @Column ({ length: 100})
-    password: string;
+    @Column({ length: 100,default:"user"})
+    role: string;
+
     
     @Column({type: 'tinyint'})
-    status: string;
+    status: number;
 
-    @Column()
-    Lottery_prizes: number;
+    
 
 }

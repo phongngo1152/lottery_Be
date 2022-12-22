@@ -10,10 +10,10 @@ export class HistoryEntity {
     id_ticket: number;
 
     @Column()
-    number: number;
+    Lottery_prizes: number;
 
-    @Column()
-    date: Date;
+    @Column({ type: "timestamp", default: () => "now()"})
+    date_histro: Date;
 
     @ManyToOne(type => UserEntity, (UserEntity) => UserEntity.id, { cascade: true })
     @JoinColumn({ name: 'id_user' })

@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { UserEntity } from './user.entity/user.entity';
 import { UserService } from './user.service';
 
@@ -16,12 +16,34 @@ export class UserController {
     get(@Param() params) {
         return this.UserService.findOne(params.id);
     }
-
-    @Post()
-    create(@Body() user: UserEntity) {
-        return this.UserService.create(user);
+    @Get(':email')
+    get_email(@Param() params) {
+        return this.UserService.finduser(params.email);
     }
 
+    // @Post()
+    // create(@Query('user') user: UserEntity) {
+    //     return this.UserService.create(user);
+    // }
+    @Post(':check_login')
+    check_login(@Query('email') email: string) {
+        return this.UserService.finduser(email);
+    }
+
+    @Post()
+    create(@Query('name') name: string,@Query('email') email: string) {
+      
+        let user:UserEntity ={
+            name: name,
+            email: email,
+            id: 0,
+            money: 1000,
+            status: 0,
+            role: 'user',
+            password: 'xxxxxx'
+        }
+        return this.UserService.create(user);
+    }
 
     @Put()
     update(@Body() user:UserEntity) {
